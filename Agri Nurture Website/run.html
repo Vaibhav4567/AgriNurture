@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Weather Prediction App</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .warning {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .card {
+            margin: 20px auto;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: #2c3e50;
+            background-color: #f7f7f7;
+            border: 2px solid #ccc;
+            border-radius: 15px;
+            width: 50%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .card img {
+            margin: 15px;
+            border-radius: 50%;
+        }
+
+        .card-body {
+            text-align: center;
+        }
+
+        .card-title {
+            font-weight: bold;
+        }
+
+        .container {
+            background: #ecf0f1;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        body {
+            background: #bdc3c7;
+        }
+
+        .form-control, .btn {
+            border-radius: 15px;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Weather Prediction Using Machine Learning</a>
+        </div>
+    </nav>
+      
+    <div class="container my-3 mt-3">
+        <h1 class="text-success">Weather Prediction<span class="text-success"> 🌤</span></h1>
+
+        <div class="form-container">
+            <form method="post" action="{{ url_for('predict')}}">
+                <div class="mb-3">
+                    <label for="precipitation" class="form-label">Precipitation</label>
+                    <input class="form-control" type="text" placeholder="Enter precipitation" id="precipitation"
+                    name="precipitation">
+                </div>
+                <div class="mb-3">
+                    <label for="temp_max" class="form-label">Maximum Temperature</label>
+                    <input class="form-control" type="text" placeholder="Enter maximum temperature" id="temp_max" name="temp_max">
+                </div>
+                <div class="mb-3">
+                    <label for="temp_min" class="form-label">Minimum Temperature</label>
+                    <input class="form-control" type="text" placeholder="Enter minimum temperature" id="temp_min" name="temp_min">
+                </div>
+                <div class="mb-3">
+                    <label for="wind" class="form-label">Wind</label>
+                    <input class="form-control" type="text" placeholder="Enter wind speed" id="wind" name="wind">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary mb-3">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h1>The Weather Will be like:</h1>
+            <h2>{{ result }}</h2>
+          </div>
+        </div>
+
+</body>
+
+</html>
