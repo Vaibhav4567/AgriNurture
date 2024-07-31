@@ -1,0 +1,11 @@
+Flask==2.0.2
+itsdangerous==2.0.1
+ markupsafe==2.0.1
+Jinja2==3.0.3
+gunicorn==19.9.0
+numpy>=1.9.2
+scipy>=0.15.1 
+matplotlib>=1.4.3
+pandas>=0.19
+waitress==2.1.2
+scikit-learn==1.2.2
